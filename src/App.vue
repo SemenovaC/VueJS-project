@@ -1,19 +1,18 @@
 <template>
   <div id="app">
-    <MainPage v-for="(el, index) in users" :user="el" key="index"/>
-    <ChangeNickname v-for="(user, index) in users" :user="user" key="index"/>
+    <MainPage v-for="(el, index) in users" :user="el" key="index" :users="users"/>
+    
   </div>
 </template>
 
 <script>
 import MainPage from './components/MainPage.vue';
-import ChangeNickname from './components/ChangeNickname.vue';
+
 
 export default {
   name: 'App',
   components: {
-    MainPage,
-    ChangeNickname 
+    MainPage, 
   },
   data() {
     return {

@@ -17,6 +17,7 @@
     <div class="welcome-page">
         <div class="container">
             <h2>Добро пожаловать!</h2>
+            <ChangeNickname v-for="(user, index) in users" :user="user" key="index"/>
             <p>Здесь какой-то пример текста на самой странице (до подключения всяких роутеров итд итп).</p>
             <p>Тоже какой-нибудь текст, сюда вставим пару переменных потом</p>
         </div>
@@ -27,15 +28,22 @@
 </template>
 
 <script>
+import ChangeNickname from './ChangeNickname.vue';
+
 export default {
     name: 'WelcomePage',
+    components: {ChangeNickname},
     props: {
-        user: {
+        ['users']: {
             type: Object,
             required: true
         },
+        user: {
+            type: Object,
+            required: true
+        }
     }
-};
+}
 </script>
 
 <style scoped>
