@@ -17,7 +17,8 @@
     <div class="welcome-page">
         <div class="container">
             <h2>Добро пожаловать!</h2>
-            <ChangeNickname v-for="(user, index) in users" :user="user" key="index"/>
+            <p>Ваш текущий никнейм  = {{ user.nickname }}</p>
+            <ChangeNickname :user="user"/>
             <p>Здесь какой-то пример текста на самой странице (до подключения всяких роутеров итд итп).</p>
             <p>Тоже какой-нибудь текст, сюда вставим пару переменных потом</p>
         </div>

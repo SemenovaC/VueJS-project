@@ -1,7 +1,6 @@
 <template>
   <div id="app">
-    <MainPage v-for="(el, index) in users" :user="el" key="index" :users="users"/>
-    
+    <MainPage :user="user"/>
   </div>
 </template>
 
@@ -16,14 +15,13 @@ export default {
   },
   data() {
     return {
-      users: [
+      user: 
         {
-          login: 'mirri29',
+          login: 'mirri31',
           nickname: 'Miriam Levi',
           email: 'zali.miriam@gmail.com',
           userpic: null
         }
-      ],
     }
   }
 };
