@@ -1,11 +1,12 @@
 <template>
   <div id="app">
-    <MainPage :user="user"/>
+      <MainPage :user="user"/>
   </div>
 </template>
 
 <script>
 import MainPage from './components/MainPage.vue';
+
 
 
 export default {

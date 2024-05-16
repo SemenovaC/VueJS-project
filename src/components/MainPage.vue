@@ -14,14 +14,17 @@
             </ul>
         </nav>
     </header>
-    <div class="welcome-page">
-        <div class="container">
-            <h2>Добро пожаловать!</h2>
-            <p>Ваш текущий никнейм  = {{ user.nickname }}</p>
-            <ChangeNickname :user="user"/>
-            <p>Здесь какой-то пример текста на самой странице (до подключения всяких роутеров итд итп).</p>
-            <p>Тоже какой-нибудь текст, сюда вставим пару переменных потом</p>
+    <div class="welcome-ticket-pages">
+        <div class="welcome-page">
+            <div class="container">
+                <h2>Добро пожаловать!</h2>
+                <p>Ваш текущий никнейм  = {{ user.nickname }}</p>
+                <ChangeNickname :user="user"/>
+                <p>Здесь какой-то пример текста на самой странице (до подключения всяких роутеров итд итп).</p>
+                <p>Тоже какой-нибудь текст, сюда вставим пару переменных потом</p>
+            </div>
         </div>
+        <TicketMaster/>
     </div>
     <footer>
       <p>&copy; 2024 год, Очень уваажемая прекрасная фронтенд компания, назовём её, условно, РаматГанЛимитед. Все права защищены.</p>
@@ -30,10 +33,11 @@
 
 <script>
 import ChangeNickname from './ChangeNickname.vue';
+import TicketMaster from './TicketMaster.vue';
 
 export default {
     name: 'WelcomePage',
-    components: {ChangeNickname},
+    components: {ChangeNickname, TicketMaster},
     props: {
         ['users']: {
             type: Object,
@@ -73,8 +77,13 @@ h1 {
     text-align: end;
 }
 
+.welcome-ticket-pages {
+    display: grid;
+    grid-template-columns: 2fr 500px;
+}
+
 .welcome-page {
-    height: 100vh;
+    height: 100%;
     display: flex;
     justify-content: center;
     align-items: center;
