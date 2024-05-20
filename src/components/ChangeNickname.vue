@@ -1,13 +1,23 @@
 
 <template>
-  <div>
-    <p className="nickname">In your current nickname {{ user.nickname.length }} symbols <br> 
-      You can change your nickname below
-    </p>
-    <input id="clearInput" type="text" v-model="newNickname" placeholder="New nickname">
-    <button @click="acceptNewNickname()">Accept</button>
-    <p v-if="newNickname != ''">Your new nickname is {{ newNickname }}</p>
-    <p v-if="newNickname == ''" >You didn't enter any symbol</p>
+  <div class="welcome-ticket-pages">
+    <div class="button-container">
+      <button>
+        <RouterLink class="btn" to="/">
+          To Main Page
+        </RouterLink>
+      </button>
+    </div>
+    <div>
+      <p>Your current nickname  = {{ user.nickname }}</p>
+      <p className="nickname">In your current nickname {{ user.nickname.length }} symbols <br> 
+        You can change your nickname below
+      </p>
+      <input id="clearInput" type="text" v-model="newNickname" placeholder="New nickname">
+      <button @click="acceptNewNickname()">Accept</button>
+      <p v-if="newNickname != ''">Your new nickname is {{ newNickname }}</p>
+      <p v-if="newNickname == ''" >You didn't enter any symbol</p>
+    </div>
   </div>
 </template>
 
@@ -56,22 +66,11 @@ export default {
     font-size: 1rem;
   }
 
+button{
+  margin-top: 30px;
+}
 
-  button {
-    padding: 8px 15px;
-    border-radius: 5px;
-    border: 1px solid silver;
-    font-size: 1rem;
-    color: white;
-    background: rgb(255, 121, 121);
-    cursor: pointer;
-  }
-
-  button:hover {
-    background: rgb(254, 93, 93);
-  }
-
-  button:active{
-    opacity: 0.7;
-  }
+.button-container {
+  margin-top: 20px;
+}
 </style>

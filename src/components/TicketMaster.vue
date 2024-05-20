@@ -1,4 +1,11 @@
 <template>
+  <div class="btn-tomainpage">
+    <button>
+      <RouterLink class="btn" to="/">
+        To Main Page
+      </RouterLink>
+    </button>
+  </div>
   <div class="ticket-master">
     <div class="ticket-master-box">
       <div v-if="info != null">
@@ -7,7 +14,6 @@
         <a :href="eventInfo">For more details</a>
       </div>
     </div>
-    
     <button v-show="info == null" class="ticket-master-btn" @click="getInfo()">Event Information</button>
   </div>
 
@@ -51,13 +57,16 @@ export default {
 
 <style scoped>
   .ticket-master {
-    height: 100vh;
-    top: -20px;
-    border: solid 1px rgb(196, 196, 196);
+    height: 80vh;
     display: flex;
     justify-content: center;
     align-items: center;
     background-color: #f0f0f0;
+  }
+
+  .btn-tomainpage {
+    background-color: #f0f0f0;
+    padding-top: 20px;
   }
 
   .ticket-master-box{

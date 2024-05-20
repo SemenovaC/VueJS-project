@@ -1,34 +1,23 @@
 <template>
-    <header>
-        <div className="header-container">
-            <h1>Некий заголовок для хэдера сайта</h1>
-            <div className="logged-in">You successfully logged in as {{ user.login }}</div>
-        </div>
-        <nav>
-            <ul>
-                <li><a href="#">Главная</a></li>
-                <li><a href="#">О нас</a></li>
-                <li><a href="#">Услуги</a></li>
-                <li><a href="#">Портфолио</a></li>
-                <li><a href="#">Контакты</a></li>
-            </ul>
-        </nav>
-    </header>
     <div class="welcome-ticket-pages">
-        <div class="welcome-page">
-            <div class="container">
-                <h2>Добро пожаловать!</h2>
-                <p>Ваш текущий никнейм  = {{ user.nickname }}</p>
-                <ChangeNickname :user="user"/>
-                <p>Здесь какой-то пример текста на самой странице (до подключения всяких роутеров итд итп).</p>
-                <p>Тоже какой-нибудь текст, сюда вставим пару переменных потом</p>
-            </div>
+        <div >
+            <h2>Добро пожаловать!</h2>
+            <p>Здесь какой-то пример текста на самой странице (до подключения всяких роутеров итд итп).</p>
+            <p>Тоже какой-нибудь текст, сюда вставим пару переменных потом</p>
         </div>
-        <TicketMaster/>
+        <div class="button-container">
+            <button>
+                <RouterLink class="btn" :user="user" to="/changeNickname">
+                    Change Nickname
+                </RouterLink>
+            </button>
+            <button>
+                <RouterLink class="btn" to="/ticketmaster">
+                    Find Events
+                </RouterLink>
+            </button>
+        </div>
     </div>
-    <footer>
-      <p>&copy; 2024 год, Очень уваажемая прекрасная фронтенд компания, назовём её, условно, РаматГанЛимитед. Все права защищены.</p>
-    </footer>
 </template>
 
 <script>
@@ -36,7 +25,7 @@ import ChangeNickname from './ChangeNickname.vue';
 import TicketMaster from './TicketMaster.vue';
 
 export default {
-    name: 'WelcomePage',
+    name: 'MainPage',
     components: {ChangeNickname, TicketMaster},
     props: {
         ['users']: {
@@ -47,24 +36,12 @@ export default {
             type: Object,
             required: true
         }
-    }
+    } 
 }
 </script>
 
 <style scoped>
-header {
-    background-color: #585c77;
-    color: white;
-    padding: 20px;
-}
 
-
-.header-container {
-    display: grid;
-    grid-template-columns: 2fr 250px;
-    align-items: center;
-    justify-content: space-between;
-}
 
 h1 {
     font-size: 2.5rem;
@@ -72,27 +49,6 @@ h1 {
     padding-bottom: 20px;
 }
 
-.logged-in {
-    width: 250px;
-    text-align: end;
-}
-
-.welcome-ticket-pages {
-    display: grid;
-    grid-template-columns: 2fr 500px;
-}
-
-.welcome-page {
-    height: 100%;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    background-color: #f0f0f0;
-}
-
-.container {
-    text-align: center;
-}
 
 h2 {
     font-size: 2.5rem;
@@ -106,22 +62,8 @@ p {
     margin-bottom: 10px;
 }
 
-nav ul {
-  list-style: none;
-  padding: 0;
-  margin: 0;
-  display: flex; 
-  justify-content: space-evenly;
+button {
+    margin-right: 20px;
 }
 
-nav ul li a {
-  color: white;
-  text-decoration: none;
-}
-footer {
-    background-color: #333;
-    color: white;
-    padding: 20px;
-    text-align: center;
-  }
 </style>
