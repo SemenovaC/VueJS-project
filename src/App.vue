@@ -2,29 +2,53 @@
   <div id="app">
     <header>
         <div className="header-container">
-            <h1>Некий заголовок для хэдера сайта</h1>
-            <div className="logged-in">You successfully logged in as {{ user.login }}</div>
+          <div class="logo">
+            <img src="./assets/icons/Union.svg" alt="logo"/>
+          </div>
+            <h1>Chardeck</h1>
+            <div class="mini-picture">
+              <img class="small-image" src="./assets/icons/book.svg"/>
+              <RouterLink to="/"> 
+                Main Page 
+              </RouterLink>
+            </div>
+            <div class="mini-picture">
+              <img class="small-image" src="./assets/icons/personas.svg"/>
+              <RouterLink to="/aboutus"> 
+                About Us
+              </RouterLink>
+            </div>
+            <div class="mini-picture">
+              <img class="small-image" src="./assets/icons/lamp.svg"/>
+              <RouterLink to="/portfolio"> 
+                Portfolio
+              </RouterLink>
+            </div>
+            <div class="mini-picture">
+              <img class="small-image" src="./assets/icons/chat.svg"/>
+              <RouterLink to="/contacts"> 
+                Contacts
+              </RouterLink>
+            </div>
+            <div class="mini-picture">
+              <img class="small-image" src="./assets/icons/randomchar.svg"/>
+              <RouterLink class="small-image" to="/services"> 
+                Settings
+              </RouterLink>
+            </div>
         </div>
-        <nav>
-            <ul>
-                <li><RouterLink to="/"> 
-                      Main Page 
-                    </RouterLink>
-                </li>
-                <li><RouterLink to="/aboutus"> 
-                      About Us
-                    </RouterLink></li>
-                <li><RouterLink to="/services"> 
-                      Services
-                    </RouterLink></li>
-                <li><RouterLink to="/portfolio"> 
-                      Portfolio
-                    </RouterLink></li>
-                <li><RouterLink to="/contacts"> 
-                      Contacts
-                    </RouterLink></li>
-            </ul>
-        </nav>
+        <div className="logged-in">
+          <div class="create">
+            CREATE
+            <img class="plus" src="./assets/icons/plus.svg"/>
+          </div>
+          <img class="logo-block-pic" src="./assets/icons/heart.svg"/>
+          <div class="notification-block">
+            <img class="logo-block-pic" src="./assets/icons/bell.svg"/>
+            <div class="red-notification">24</div>
+          </div>
+          <img :src="user.userpic" alt="User Picture"/>
+        </div>
     </header>
     <main>
       <RouterView :user="user"/>
@@ -38,21 +62,7 @@
 
 <script>
 import MainPage from './components/MainPage.vue';
-
-//import { computed } from 'vue';
-// import { useRoute, useRouter } from 'vue-router';
-
-// const router = useRouter()
-// const route = useRoute()
-
-// const search = computed({
-//   get() {
-//     return route.query.search ?? ''
-//   },
-//   set(search) {
-//     router.replace({query: {search}})
-//   }
-// })
+import usericon from './assets/icons/logopic.svg'
 
 
 export default {
@@ -72,7 +82,7 @@ export default {
           login: 'mirri31',
           nickname: 'Miriam Levi',
           email: 'zali.miriam@gmail.com',
-          userpic: null
+          userpic: usericon
         }
     }
   }
@@ -80,40 +90,97 @@ export default {
 </script>
 
 <style>
-#app {
-  font-family: Arial, sans-serif;
-  text-align: center;
-}
+
 
 header {
-    background-color: #585c77;
-    color: white;
-    padding: 20px;
+  background: rgba(49, 49, 54, 1);
+  z-index: 1;
+  border-bottom: 1px solid rgba(83, 83, 92, 1);
+  color: white;
+  padding: 20px;
+  position: fixed;
+  height: 60px;
+  top: 0;
+  right: 0;
+  left: 0;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
 }
 
 .header-container {
-    display: grid;
-    grid-template-columns: 2fr 250px;
-    align-items: center;
-    justify-content: space-between;
+  width: 789px;
+  margin-right: 24px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+h1 {
+  margin-left: -20px;
+}
+
+.logo {
+  background: rgba(174, 198, 255, 1);
+  width: 28px;
+  height: 28px;
+  border-radius: 8px;
+  margin-left: 24px;
+}
+
+.small-image {
+  height: 17px;
+  width: 17px;
+  margin-left: 4px;
+}
+
+.create {
+  width: 99px;
+  height: 33px;
+  border-radius: 2px;
+  padding: 8px 12px 8px 12px;
+  display: flex;
+  justify-content: center;
+  background: rgba(174, 198, 255, 1);
+  color: rgba(24, 24, 26, 1);
+  align-items: center;
+  font-weight: bold;
+  font-size: 16px;
+}
+
+.plus {
+  margin-left: 4px;
+  width: 17px;
+  height: 17px;
+}
+
+.logo-block-pic {
+  height: 20px;
+  width: 22px;
 }
 
 .logged-in {
-    width: 250px;
-    text-align: end;
+    display: flex;
+    align-items:center;
+    justify-content: space-between;
+    margin-right: 24px;
+    width: 280px;
 }
 
-nav ul {
-  list-style: none;
-  padding: 0;
-  margin: 0;
-  display: flex; 
-  justify-content: space-evenly;
+.notification-block {
+  display: flex;
+  position: relative;
 }
 
-nav ul li a {
-  color: white;
-  text-decoration: none;
+.red-notification {
+  position: absolute;
+  background: rgba(168, 31, 31, 1);
+  width: 20px;
+  height: 15px;
+  font-size: 12px;
+  border-radius: 4px;
+  top:-7px;
+  right: -7px;
 }
 
 footer {

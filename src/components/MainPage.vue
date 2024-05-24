@@ -41,7 +41,11 @@ export default {
 </script>
 
 <style scoped>
-
+#app {
+  font-family: Arial, sans-serif;
+  text-align: center;
+  background: rgba(35, 35, 37, 1);
+}
 
 h1 {
     font-size: 2.5rem;

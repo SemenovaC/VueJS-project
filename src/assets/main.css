@@ -1,5 +1,21 @@
 
+#app {
+  position: relative;
+  font-family: Arial, sans-serif;
+  text-align: center;
+  background: rgba(35, 35, 37, 1);
+  color: white;
+  width: 100%;
+}
 
+a {
+  text-decoration: none;
+  color: white;
+}
+
+.template-color {
+  background: rgba(35, 35, 37, 1);
+}
 
 .btn {
   text-decoration: none;
@@ -30,5 +46,4 @@ button:active{
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  background-color: #f0f0f0;
 }

@@ -1,5 +1,5 @@
 
-<template>
+<template class="template-color">
   <div class="welcome-ticket-pages">
     <div class="button-container">
       <button>

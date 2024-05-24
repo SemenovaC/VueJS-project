@@ -1,22 +1,23 @@
 <template>
-  <div class="btn-tomainpage">
-    <button>
-      <RouterLink class="btn" to="/">
-        To Main Page
-      </RouterLink>
-    </button>
-  </div>
-  <div class="ticket-master">
-    <div class="ticket-master-box">
-      <div v-if="info != null">
-        <img :src='eventImage'>
-        <p>{{ eventName }}</p>
-        <a :href="eventInfo">For more details</a>
-      </div>
+  <div class="template-color">
+    <div class="btn-tomainpage">
+      <button>
+        <RouterLink class="btn" to="/">
+          To Main Page
+        </RouterLink>
+      </button>
     </div>
-    <button v-show="info == null" class="ticket-master-btn" @click="getInfo()">Event Information</button>
+    <div class="ticket-master">
+      <div class="ticket-master-box">
+        <div v-if="info != null">
+          <img :src='eventImage'>
+          <p>{{ eventName }}</p>
+          <a :href="eventInfo">For more details</a>
+        </div>
+      </div>
+      <button v-show="info == null" class="ticket-master-btn" @click="getInfo()">Event Information</button>
+    </div>
   </div>
-
 </template>
 
 
