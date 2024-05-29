@@ -88,8 +88,9 @@
     </div>
   </div>
 
-  <div class="modal">
+  <div v-if="show" class="modal">
     <div class="modal-container">
+      <div data-close class="modal-close" @click="closeModal()">&times;</div>
       <div class="input-name">
         Are you sure? <br>
         Your account will be deleted!
@@ -112,7 +113,19 @@
 
 
 
-<script setup>
+<script>
+  export default {
+    data() {
+      return {
+        show: true,
+      }
+    },
+    methods: {
+      closeModal: function() {
+        this.show = false;
+      }
+    }
+  }
 
 </script>
 
@@ -281,7 +294,7 @@ input {
 /* background: rgba(166, 243, 153, 1); */
 
 
- .modal{
+ .modal {
   display: block;
   position: fixed;
   z-index: 2;
@@ -290,9 +303,11 @@ input {
   width: 100%;
   height: 100%;
   overflow: hidden;
+  background-color: rgba(0, 0, 0, .5)
 }
 
 .modal-container {
+  position: relative;
   width: 296px;
   background: rgba(18, 18, 18, 1);
   width: 20%;
@@ -313,5 +328,18 @@ input {
   padding: 30px 0;
   border-top: 1px solid rgba(83, 83, 92, 1);
   margin-bottom: 5px;
+}
+
+.modal-close {
+  position: absolute;
+  top: 8px;
+  right: 14px;
+  font-size: 30px;
+  color: white;
+  opacity: .5;
+  font-weight: 700;
+  border: none;
+  background-color: transparent;
+  cursor: pointer
 }
 </style>

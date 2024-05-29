@@ -94,15 +94,12 @@ export default {
 
 header {
   background: rgba(49, 49, 54, 1);
-  z-index: 1;
   border-bottom: 1px solid rgba(83, 83, 92, 1);
   color: white;
-  padding: 20px;
-  position: fixed;
   height: 60px;
-  top: 0;
-  right: 0;
-  left: 0;
+  position: fixed;
+  width: 100%;
+  padding: 20px;
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -110,14 +107,9 @@ header {
 
 .header-container {
   width: 789px;
-  margin-right: 24px;
   display: flex;
   align-items: center;
   justify-content: space-between;
-}
-
-h1 {
-  margin-left: -20px;
 }
 
 .logo {
@@ -163,8 +155,8 @@ h1 {
     display: flex;
     align-items:center;
     justify-content: space-between;
-    margin-right: 24px;
     width: 280px;
+    padding-right: 64px;
 }
 
 .notification-block {
