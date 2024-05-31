@@ -9,8 +9,8 @@
       </button>
     </div>
     <div>
-      <p>Your current nickname  = {{ this.newNickname != '' ? this.newNickname : this.user.nickname }}</p>
-      <p className="nickname">In your current nickname {{ newNickname.length }} symbols <br> 
+      <p>Your current nickname  = {{ this.newNickname != '' ? this.newNickname : this.user.nickname }} </p>
+      <p className="nickname">In your current nickname {{ this.newNickname.length > 0 ? this.newNickname.length : this.user.nickname.length }} symbols <br> 
         You can change your nickname below
       </p>
       <input id="clearInput" type="text" v-model="changedNickname" placeholder="New nickname">
