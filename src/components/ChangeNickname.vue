@@ -9,20 +9,21 @@
       </button>
     </div>
     <div>
-      <p>Your current nickname  = {{ user.nickname }}</p>
-      <p className="nickname">In your current nickname {{ user.nickname.length }} symbols <br> 
+      <p>Your current nickname  = {{ this.newNickname != '' ? this.newNickname : this.user.nickname }}</p>
+      <p className="nickname">In your current nickname {{ newNickname.length }} symbols <br> 
         You can change your nickname below
       </p>
-      <input id="clearInput" type="text" v-model="newNickname" placeholder="New nickname">
+      <input id="clearInput" type="text" v-model="changedNickname" placeholder="New nickname">
       <button @click="acceptNewNickname()">Accept</button>
-      <p v-if="newNickname != ''">Your new nickname is {{ newNickname }}</p>
-      <p v-if="newNickname == ''" >You didn't enter any symbol</p>
+      <p v-if="changedNickname!= ''">Your new nickname is {{ changedNickname }}</p>
+      <p v-if="changedNickname == ''" >You didn't enter any symbol</p>
     </div>
   </div>
 </template>
 
 
 <script>
+
 export default {
   props: {
     user: {
@@ -32,17 +33,28 @@ export default {
   },
   methods: {
     acceptNewNickname() {
-      this.user.nickname = this.newNickname;
+      this.newNickname = this.changedNickname;
       this.clearInput();
     },
     // only from second click the input becomes empty (?)
     clearInput() {
       document.getElementById('clearInput').value = '';
+    },
+  },
+  mounted() {
+    if (localStorage.newNickname) {
+      this.newNickname = localStorage.newNickname;
+    }
+  },
+  watch: {
+    newNickname (newName) {
+      localStorage.newNickname = newName;
     }
   },
   data() {
     return {
       newNickname: '',
+      changedNickname: ''
     }
   },
 }

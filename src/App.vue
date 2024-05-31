@@ -32,7 +32,7 @@
             </div>
             <div class="mini-picture">
               <img class="small-image" src="./assets/icons/randomchar.svg"/>
-              <RouterLink class="small-image" to="/services"> 
+              <RouterLink class="small-image" to="/settings"> 
                 Settings
               </RouterLink>
             </div>
@@ -70,11 +70,6 @@ export default {
   components: {
     MainPage, 
   },
-  // methods: {
-  //   goToMainPage() {
-  //       this.$router.push('/')
-  //   },
-  // },
   data() {
     return {
       user: 
@@ -103,6 +98,7 @@ header {
   display: flex;
   justify-content: space-between;
   align-items: center;
+  z-index: 10;
 }
 
 .header-container {
@@ -138,6 +134,7 @@ header {
   align-items: center;
   font-weight: bold;
   font-size: 16px;
+  cursor: pointer;
 }
 
 .plus {

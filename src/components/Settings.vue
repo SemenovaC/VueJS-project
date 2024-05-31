@@ -84,7 +84,7 @@
         <p class="input-name">Account Management</p>
         <img src="../assets/icons/arrow.svg"/>
       </div>
-      <p class="delete-account">Permanently Delete My Account</p>
+      <p @click="openModal()" class="delete-account">Permanently Delete My Account</p>
     </div>
   </div>
 
@@ -105,7 +105,7 @@
         <p>Delete all projects</p>
       </div>
 
-      <div class="cancel">CANCEL</div>
+      <div @click="closeModal()" class="cancel">CANCEL</div>
       <div class="delete-account-modal">Delete account permanently</div>
     </div>
   </div>
@@ -117,12 +117,15 @@
   export default {
     data() {
       return {
-        show: true,
+        show: false,
       }
     },
     methods: {
       closeModal: function() {
         this.show = false;
+      },
+      openModal: function() {
+        this.show = true
       }
     }
   }
@@ -167,6 +170,7 @@
   color: rgba(24, 24, 26, 1);
   font-weight: bold;
   font-size: 16px;
+  cursor: pointer;
 }
 
 img {
@@ -250,6 +254,7 @@ input {
   margin-top: 13px;
   border-color: rgba(166, 243, 153, 1);
   background: rgba(29, 29, 31, 1);
+  cursor: pointer;
 }
 
 .account-container {
@@ -273,6 +278,7 @@ input {
   color: rgba(224, 121, 121, 1);
   font-size: 16px;
   font-weight: 400;
+  cursor: pointer;
 }
 
 .cancel {
@@ -289,10 +295,8 @@ input {
   font-weight: bold;
   font-size: 16px;
   margin: 28px 0 28px 0;
+  cursor: pointer;
 }
-
-/* background: rgba(166, 243, 153, 1); */
-
 
  .modal {
   display: block;
@@ -328,6 +332,7 @@ input {
   padding: 30px 0;
   border-top: 1px solid rgba(83, 83, 92, 1);
   margin-bottom: 5px;
+  cursor: pointer;
 }
 
 .modal-close {

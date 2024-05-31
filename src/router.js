@@ -4,7 +4,7 @@ import MainPage from './components/MainPage.vue'
 import AboutUs from './components/AboutUs.vue'
 import Contacts from './components/Contacts.vue'
 import Portfolio from './components/Portfolio.vue'
-import Services from './components/Services.vue'
+import Settings from './components/Settings.vue'
 import ChangeNickname from './components/ChangeNickname.vue';
 import TicketMaster from './components/TicketMaster.vue';
 
@@ -20,9 +20,9 @@ const routes = [{
     component: AboutUs
   },
   {
-    name: 'Services',
-    path: '/services',
-    component: Services
+    name: 'Settings',
+    path: '/settings',
+    component: Settings
   },
   {
     name: 'Portfolio',
