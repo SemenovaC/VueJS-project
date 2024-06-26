@@ -1,9 +1,11 @@
 <template>
     <div class="welcome-ticket-pages">
         <div >
-            <h2>Добро пожаловать!</h2>
-            <p>Здесь какой-то пример текста на самой странице (до подключения всяких роутеров итд итп).</p>
-            <p>Тоже какой-нибудь текст, сюда вставим пару переменных потом</p>
+            <h2>Welcome!</h2>
+            <input type="text" placeholder="Login" v-model="logUser.login"/>
+            <input type="password" placeholder="Password" v-model="logUser.password"/>
+            <button @click="toLogInUser()">Log in</button>
+            <p></p>
         </div>
         <div class="button-container">
             <button>
@@ -20,21 +22,36 @@
     </div>
 </template>
 
-<script>
+<script >
 import ChangeNickname from './ChangeNickname.vue';
 import TicketMaster from './TicketMaster.vue';
+import axios from 'axios';
+//import {useChardeckStore} from './stores/ChardeckStore';
+
+//const logIn = useChardeckStore();
 
 export default {
     name: 'MainPage',
     components: {ChangeNickname, TicketMaster},
     props: {
-        ['users']: {
-            type: Object,
-            required: true
-        },
         user: {
             type: Object,
             required: true
+        }
+    },
+    data() {
+        return{
+            logUser: {
+                login: '',
+                password: ''
+            }
+        }
+    },
+    methods: {
+        toLogInUser() {
+            axios.post("http://dev.chardeck.su/api/en/v1/registration", this.logUser)
+                .then(response => console.log(response))
+                .catch(error => console.log(error))
         }
     } 
 }
