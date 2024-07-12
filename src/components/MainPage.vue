@@ -2,9 +2,9 @@
     <div class="welcome-ticket-pages">
         <div >
             <h2>Welcome!</h2>
-            <input type="text" placeholder="Login" v-model="logUser.login"/>
+            <!-- <input type="text" placeholder="Login" v-model="logUser.login"/>
             <input type="password" placeholder="Password" v-model="logUser.password"/>
-            <button @click="toLogInUser()">Log in</button>
+            <button @click="toLogInUser()">Log in</button> -->
             <p></p>
         </div>
         <div class="button-container">
@@ -39,21 +39,21 @@ export default {
             required: true
         }
     },
-    data() {
-        return{
-            logUser: {
-                login: '',
-                password: ''
-            }
-        }
-    },
-    methods: {
-        toLogInUser() {
-            axios.post("http://dev.chardeck.su/api/en/v1/registration", this.logUser)
-                .then(response => console.log(response))
-                .catch(error => console.log(error))
-        }
-    } 
+    // data() {
+    //     return{
+    //         logUser: {
+    //             login: '',
+    //             password: ''
+    //         }
+    //     }
+    // },
+    // methods: {
+    //     toLogInUser() {
+    //         axios.post("http://dev.chardeck.su/api/en/v1/registration", this.logUser)
+    //             .then(response => console.log(response))
+    //             .catch(error => console.log(error))
+    // }
+    // } 
 }
 </script>
 

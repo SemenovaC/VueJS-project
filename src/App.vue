@@ -26,8 +26,8 @@
             </div>
             <div class="mini-picture">
               <img class="small-image" src="./assets/icons/chat.svg"/>
-              <RouterLink to="/contacts"> 
-                Contacts
+              <RouterLink to="/login"> 
+                Log In
               </RouterLink>
             </div>
             <div class="mini-picture">

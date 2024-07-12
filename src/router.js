@@ -1,12 +1,14 @@
 import { createRouter, createWebHistory } from 'vue-router';
 
-import MainPage from './components/MainPage.vue'
-import AboutUs from './components/AboutUs.vue'
-import Contacts from './components/Contacts.vue'
-import Portfolio from './components/Portfolio.vue'
-import Settings from './components/Settings.vue'
+import MainPage from './components/MainPage.vue';
+import AboutUs from './components/AboutUs.vue';
+import Contacts from './components/Contacts.vue';
+import Portfolio from './components/Portfolio.vue';
+import Settings from './components/Settings.vue';
 import ChangeNickname from './components/ChangeNickname.vue';
 import TicketMaster from './components/TicketMaster.vue';
+import Register from './components/Register.vue';
+import LogIn from './components/LogIn.vue';
 
 
 const routes = [{
@@ -43,6 +45,16 @@ const routes = [{
     name: 'TicketMaster',
     path: '/ticketmaster',
     component: TicketMaster
+  },
+  {
+    name: 'Register',
+    path: '/register',
+    component: Register
+  },
+  {
+    name: 'LogIn',
+    path: '/login',
+    component: LogIn
   }
 ]
 
