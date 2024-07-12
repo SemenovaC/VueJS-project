@@ -18,32 +18,42 @@ export const useAuthStore = defineStore('auth', {
         login: null,
         nickname: null,
         roles: null,
+        loading: false
     }
   ),
   actions: {
     async registerFunc(login, password) {
-        console.log('nyyyy')
-        await axios.post("http://dev.chardeck.su/api/en/v1/registration", {
-            username: login,
-            password: password,
-        }).then(response => {
-            console.log('AAAAAA') // ne doshlo
-            this.updateUserData(response)
-        }).catch(error => {
-            console.log(error);
-        })
-    },
-    async logInFunc(login, password) {
-        await axios.post("http://dev.chardeck.su/api/en/v1/login", {}, {
-            auth: {
+        this.loading = true
+        try {
+            await axios.post("http://dev.chardeck.su/api/en/v1/registration", {
                 username: login,
                 password: password,
-            },
-        }).then(response => {
-            this.updateUserData(response);
-        }).catch(e => {
-            console.log(e);
-        })
+            }).then(response => {
+                console.log('AAAAAA') // ne doshlo
+                this.updateUserData(response)
+            })
+        } catch(e) {
+            console.log(e)
+        } finally {
+            this.loading = false
+        }
+    },
+    async logInFunc(login, password) {
+        this.loading = true
+        try {
+            await axios.post("http://dev.chardeck.su/api/en/v1/login", {}, {
+                auth: {
+                    username: login,
+                    password: password,
+                },
+            }).then(response => {
+                this.updateUserData(response);
+            })
+        } catch (e) {
+            console.log(e)
+        } finally {
+            this.loading = false
+        }
     },
     updateUserData(response) {
         this.token = response.headers['x-token'] || null;

@@ -7,7 +7,7 @@
           <input type="password" placeholder="Password" v-model="password"/>
           <button @click="logIn()">Log in</button>
         </form>
-        <Loader v-if="loading == true"/>
+        <Loader v-if="authStore.loading == true"/>
         <p v-if="errorMes != ''">{{ errorMes }}</p>
         <div>Are you not registered yet? <router-link to="/register"><span>Register</span></router-link></div>
       </div>
@@ -27,7 +27,6 @@ const login = ref('');
 const password = ref('');
 
 const errorMes = ref('');
-const loading = ref(false);
 
 const logIn = async () => {
   errorMes.value = ''
@@ -40,9 +39,7 @@ const logIn = async () => {
     return false
   }
 
-  loading.value = true
   let res = await authStore.logInFunc(login.value, password.value);
-  loading.value = false
   console.log(res);
   router.push('/ticketmaster')
 }
@@ -50,7 +47,7 @@ const logIn = async () => {
 </script>
 
 
-<style>
+<style scoped>
 .form {
   display: flex;
   align-items: center;
